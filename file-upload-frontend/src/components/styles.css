@@ -1,0 +1,227 @@
+/* Container and heading styling */
+.student-table-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #f8f9fc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-table-container h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Search bar styling */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.search-button,
+.reset-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.search-button:hover,
+.reset-button:hover {
+  background-color: #922512;
+}
+
+/* Table styling */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+  background-color: white;
+}
+
+.student-table th,
+.student-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.student-table th {
+  background-color: #000000;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.student-table td {
+  color: #333;
+}
+
+.student-table tr:nth-child(even) {
+  background-color: #f3f4f7;
+}
+
+.student-table td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.student-table td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Button styling inside the table */
+.download-button,
+.view-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.download-button:hover,
+.view-button:hover {
+  background-color: #ed4116;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  /* background-color: #05070b; */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+  color: #333;
+  margin: 0 10px;
+}
+
+
+
+/* Container styling */
+.student-list-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 8px; */
+  background-color: #f9f9f9;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Title styling */
+.student-list-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Search and filter input styles */
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.search-container button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-top: 10px; */
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Button styling */
+.download-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+

@@ -1,0 +1,110 @@
+/* Full page gradient background */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #000000, #7c1c02, #000000);
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-box {
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-box h2 {
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  .actions input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .actions .forgot-password {
+    font-size: 12px;
+    color: #ff512f;
+    text-decoration: none;
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #a52a2a;
+  }
+  
+  .social-login {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-icons button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .social-icons .google { background-color: #db4437; }
+  .social-icons .facebook { background-color: #3b5998; }
+  .social-icons .twitter { background-color: #1da1f2; }
+  
+  .signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .signup-link a {
+    color: #ff512f;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }

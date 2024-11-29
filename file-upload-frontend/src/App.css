@@ -1,0 +1,333 @@
+/* General reset for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center;
+  min-height: 100vh; */
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.login-box {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  /* text-align: center; */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="date"],
+select
+ {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+input[type="date"]{
+  width: -webkit-fill-available;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="date"],
+select {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="date"]:focus,
+select {
+  outline: none;
+  border-color: #0073e6;
+  box-shadow: 0 0 4px rgba(0, 115, 230, 0.3);
+}
+
+.custom-file-upload {
+  background-color: #f9f9f9;
+  color: #808080;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+}
+
+.custom-file-upload:focus {
+  outline: none;
+  border-color: #0073e6;
+  box-shadow: 0 0 4px rgba(0, 115, 230, 0.3);
+}
+
+/* Button styling */
+button {
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #270602;
+}
+
+/* Title styling */
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #000000;
+}
+
+/* Display for student information */
+.student-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.student-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.student-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.student-card a {
+  text-decoration: none;
+  color: #0073e6;
+  font-size: 16px;
+}
+
+.student-card a:hover {
+  color: #005bb5;
+}
+
+/* Search bar styling */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+}
+
+/* Align items in lists */
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Link styling for navigation */
+a {
+  color: #000000;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #353636;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.student-table th, .student-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  /* background-color: #007bff; */
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: default;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.search-container button {
+  padding: 5px 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar a.active {
+  color: #ff6600; /* Example active color */
+}
+
+.sidebar .icon {
+  margin-right: 8px; /* Spacing between icon and text */
+  font-size: 1.2em;   /* Adjust icon size if needed */
+  color: #555;        /* Icon color */
+}
+
+.sidebar a:hover .icon {
+  color: #ff6600; /* Hover effect color */
+}
+
+.toggle {
+  margin: 10px 0;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the toggle arrow icon */
+.toggle-icon {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.toggle-icon:hover {
+  color: #0056b3;
+}
+/* Action icons styling */
+.action-icon {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.action-icon:hover {
+  color: #0056b3;
+}
+
+.delete-icon {
+  color: #dc3545;
+}
+
+.delete-icon:hover {
+  color: #c82333;
+}
+
+/* Save and Cancel buttons styling */
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: #007bff;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

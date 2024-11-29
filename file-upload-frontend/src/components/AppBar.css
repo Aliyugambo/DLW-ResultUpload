@@ -1,0 +1,32 @@
+/* AppBar.css */
+
+.app-bar {
+    background-color: #e10505;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+  }
+  
+  .app-bar h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #ffffff;
+  }
+  
+  .app-bar button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .app-bar button:hover {
+    background-color: #000000;
+  }
+  
