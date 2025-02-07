@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'dlw-resultupload-production.up.railway.app';
+const BASE_URL = 'https://dlw-resultupload.onrender.com/api';
 
 // Function to retrieve token from localStorage and set Authorization header
 const authHeader = () => ({
