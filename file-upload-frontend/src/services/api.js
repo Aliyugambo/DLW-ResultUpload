@@ -1,11 +1,15 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://dlw-resultupload.onrender.com/api';
+// const BASE_URL = 'https://dlw-resultupload.onrender.com/api';
+const BASE_URL = 'http://localhost:5000/api';
 
 // Function to retrieve token from localStorage and set Authorization header
 const authHeader = () => ({
   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 });
+// const authHeader = (token) => ({
+//   headers: { Authorization: `Bearer ${token}` },
+// });
 
 // Admin login endpoint
 export const adminLogin = async (credentials) => {
@@ -14,6 +18,17 @@ export const adminLogin = async (credentials) => {
     return response.data;
   } catch (error) {
     console.error('Error during admin login:', error);
+    throw error;
+  }
+};
+
+// Register a new user (admin only)
+export const registerUser = async (userData, token) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/auth/register`, userData, authHeader(token));
+    return response.data;
+  } catch (error) {
+    console.error('Error registering user:', error);
     throw error;
   }
 };

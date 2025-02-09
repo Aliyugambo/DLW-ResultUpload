@@ -76,7 +76,7 @@ const UploadsList = () => {
           <tr>
             <th>Date</th>
             <th>Course Title</th>
-            <th>Department</th>
+            {/* <th>Department</th> */}
             <th>General Result</th>
             <th>Proficiency Document</th>
             <th>Actions</th>
@@ -98,7 +98,7 @@ const UploadsList = () => {
                   upload.courseTitle
                 )}
               </td>
-              <td>
+              {/* <td>
                 {editMode === upload._id ? (
                   <input
                     type="text"
@@ -109,7 +109,7 @@ const UploadsList = () => {
                 ) : (
                   upload.department
                 )}
-              </td>
+              </td> */}
               <td>
                 <a 
                   href={`http://localhost:5000/uploads/${upload.generalResult}`} 

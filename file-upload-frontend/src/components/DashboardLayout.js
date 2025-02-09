@@ -7,8 +7,10 @@ import StudentList from './StudentList';
 import SearchStudent from './SearchStudent';
 import UploadDocuments from './UploadDocuments';
 import UploadsList from './UploadsList';
+import RegisterUser from './RegisterUser';
 import './DashboardLayout.css';
-import logo from '../assets/logo.png';
+import ProtectedRoute from './ProtectedRoute';
+// import logo from '../assets/logo.png';
 import DashboardHome from './DashboardHome';
 
 function DashboardLayout() {
@@ -21,10 +23,15 @@ function DashboardLayout() {
         <AppBar adminName={adminName}/>
         <div className="content">
         <div className="dashboard-header">
-            <img src={logo} alt="Company Logo" className="dashboard-logo" />
+        <h2><span>D</span>L<span>W</span></h2>
           </div>
           <Routes>
             <Route path="/" element={<DashboardHome />} />
+            <Route path="register" element={
+              <ProtectedRoute>
+                <RegisterUser />
+              </ProtectedRoute>
+            } />
             <Route path="add-student" element={<AddStudent />} />
             <Route path="students" element={<StudentList />} />
             <Route path="search" element={<SearchStudent />} />

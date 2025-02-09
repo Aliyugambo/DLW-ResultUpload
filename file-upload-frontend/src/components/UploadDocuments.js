@@ -8,7 +8,7 @@ const UploadComponent = () => {
   const [proficiencySecondTerm, setproficiencySecondTerm] = useState(null);
   const [date, setDate] = useState('');
   const [courseTitle, setCourseTitle] = useState('');
-  const [department, setDepartment] = useState('');
+  // const [department, setDepartment] = useState('');
   const [message, setMessage] = useState('');
 
   const handleGeneralResultChange = (e) => {
@@ -26,7 +26,7 @@ const UploadComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!generalResult || !proficiencyDocument || !date || !courseTitle || !department) {
+    if (!generalResult || !proficiencyDocument || !date || !courseTitle) {
       setMessage("All fields are required.");
       return;
     }
@@ -37,7 +37,7 @@ const UploadComponent = () => {
     formData.append('proficiencySecondTerm', proficiencySecondTerm);
     formData.append('date', date);
     formData.append('courseTitle', courseTitle);
-    formData.append('department', department);
+    // formData.append('department', department);
 
     try {
       await uploadFile(formData);
@@ -47,7 +47,7 @@ const UploadComponent = () => {
       setproficiencySecondTerm('')
       setDate('');
       setCourseTitle('');
-      setDepartment('');
+      // setDepartment('');
     } catch (error) {
       console.error('Error uploading files:', error);
       alert("Failed to Upload File");
@@ -82,7 +82,7 @@ const UploadComponent = () => {
           />
         </label>
 
-        <label>
+        {/* <label>
           Department:
           <input
             type="text"
@@ -90,7 +90,7 @@ const UploadComponent = () => {
             onChange={(e) => setDepartment(e.target.value)}
             required
           />
-        </label>
+        </label> */}
 
         <label>
           General Result:
@@ -106,7 +106,7 @@ const UploadComponent = () => {
           <input type="file" onChange={handleProficiencysecondDocumentChange} required />
         </label>
 
-        <button type="submit">Upload Files</button>
+        <button type="submit" className="login-btn">Upload Files</button>
       </form>
       </div>
     </div>

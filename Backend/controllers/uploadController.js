@@ -2,12 +2,12 @@ const UploadModel = require('../models/UploadModel');
 
 // Controller to upload files with metadata
 exports.uploadFiles = (req, res) => {
-    const { date, courseTitle, department } = req.body;
+    const { date, courseTitle} = req.body;
     const generalResult = req.files['generalResult'] ? req.files['generalResult'][0].filename : null;
     const proficiencyDocument = req.files['proficiencyDocument'] ? req.files['proficiencyDocument'][0].filename : null;
     const proficiencySecondTerm = req.files['proficiencySecondTerm'] ? req.files['proficiencySecondTerm'][0].filename : null;
 
-    if (!generalResult || !proficiencyDocument || !date || !courseTitle || !department) {
+    if (!generalResult || !proficiencyDocument || !date || !courseTitle) {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
@@ -15,7 +15,6 @@ exports.uploadFiles = (req, res) => {
     const newUpload = new UploadModel({
         date,
         courseTitle,
-        department,
         generalResult,
         proficiencyDocument,
         proficiencySecondTerm,

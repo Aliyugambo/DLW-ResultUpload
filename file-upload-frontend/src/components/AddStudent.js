@@ -96,7 +96,7 @@ function AddStudent() {
         />
         </label>
 
-        <button type="submit">Add Student</button>
+        <button type="submit" className="login-btn">Add Student</button>
       </form>
       </div>
     </div>

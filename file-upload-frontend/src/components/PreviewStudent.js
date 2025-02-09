@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './ProtectedRoute.css';
 
 const PreviewStudent = ({ studentId }) => {
   const [student, setStudent] = useState(null);

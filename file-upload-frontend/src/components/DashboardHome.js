@@ -20,7 +20,7 @@ function DashboardHome() {
 
   return (
     <div className="dashboard-home">
-      <h1>Total Number of Student Per Course</h1>
+      <h1>Total Number of Student</h1>
       <div className="counts-container">
         {courseCounts.map((course) => (
           <div key={course.name} className="course-count">

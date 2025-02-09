@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import DashboardLayout from './components/DashboardLayout';
 import Login from './components/AdminLogin';
+import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -27,6 +28,14 @@ function App() {
         <Route 
           path="/dashboard/*" 
           element={isAuthenticated ? <DashboardLayout /> : <Navigate to="/" />} 
+        />
+        <Route 
+          path="/register" 
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          } 
         />
       </Routes>
     </Router>

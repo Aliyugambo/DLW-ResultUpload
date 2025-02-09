@@ -1,20 +1,37 @@
-// seedAdmin.js (run this file once to create the admin)
 const mongoose = require('mongoose');
+const bcryptjs = require('bcryptjs');
 const Admin = require('./models/Admin');
-const connectDB = require('./config/db');
 require('dotenv').config();
 
+const seedAdmin = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-const createAdmin = async () => {
-  const adminExists = await Admin.findOne({ username: 'admin' });
-  if (!adminExists) {
-    const admin = new Admin({ username: 'admin', password: 'admin123' });
+    // First, clear any existing admin
+    await Admin.deleteOne({ username: 'admin' });
+
+    const username = 'admin';
+    const password = 'adminpassword';
+    const role = 'admin';
+
+    const hashedPassword = await bcryptjs.hash(password, 10);
+
+    const admin = new Admin({
+      username,
+      password: hashedPassword,
+      role,
+    });
+
     await admin.save();
-    console.log('Admin created with username: admin and password: admin123');
-  } else {
-    console.log('Admin already exists');
+    console.log('Admin user seeded successfully');
+    mongoose.connection.close();
+  } catch (error) {
+    console.error('Error seeding admin user:', error);
+    mongoose.connection.close();
   }
-  mongoose.connection.close();
 };
 
-connectDB();
+seedAdmin();
