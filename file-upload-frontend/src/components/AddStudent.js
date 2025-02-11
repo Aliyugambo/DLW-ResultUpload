@@ -70,7 +70,7 @@ function AddStudent() {
         />
         </label>
         <label>
-          EndOfTermResult:
+          EndOfcourseResult:
         <input
           type="file"
           onChange={(e) => handleFileChange(e, setEndOfTermResult)}
@@ -79,7 +79,7 @@ function AddStudent() {
         </label>
 
         <label>
-          EndOfTermReport:
+          EndOfTermReport 1:
         <input
           type="file"
           onChange={(e) => handleFileChange(e, setEndOfTermReport)}
@@ -88,7 +88,7 @@ function AddStudent() {
         </label>
 
         <label>
-          ServicePaper:
+        EndOfTermReport 2:
         <input
           type="file"
           onChange={(e) => handleFileChange(e, setServicePaper)}

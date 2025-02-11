@@ -1,6 +1,7 @@
-// src/components/StudentList.js
 import React, { useState, useEffect } from 'react';
-import { fetchAllStudents, searchStudent, downloadFile } from '../services/api';
+import { fetchAllStudents, searchStudent, downloadFile, deleteStudent, editStudent } from '../services/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import './styles.css';
 
 const StudentList = () => {
@@ -10,6 +11,8 @@ const StudentList = () => {
   const [selectedCourse, setSelectedCourse] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [editMode, setEditMode] = useState(false);
+  const [editStudentData, setEditStudentData] = useState({});
   const studentsPerPage = 6;
 
   useEffect(() => {
@@ -69,12 +72,41 @@ const StudentList = () => {
     setCurrentPage(1);
   };
 
-  // Updated handleDownload to include both storedName and originalName
   const handleDownload = (storedName, originalName) => {
     try {
       downloadFile(storedName, originalName);
     } catch (error) {
       console.error('Error downloading file:', error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteStudent(id);
+      setFilteredStudents(filteredStudents.filter(student => student._id !== id));
+    } catch (error) {
+      console.error('Error deleting student:', error);
+    }
+  };
+
+  const handleEdit = (student) => {
+    setEditMode(true);
+    setEditStudentData(student);
+  };
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditStudentData({ ...editStudentData, [name]: value });
+  };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await editStudent(editStudentData._id, editStudentData);
+      setEditMode(false);
+      setFilteredStudents(filteredStudents.map(student => student._id === editStudentData._id ? editStudentData : student));
+    } catch (error) {
+      console.error('Error editing student:', error);
     }
   };
 
@@ -102,13 +134,6 @@ const StudentList = () => {
           ))}
         </select>
         
-        {/* <select className='search-input' value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-          <option value="">Select Year</option>
-          {uniqueYears.map(year => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select> */}
-        
         <button onClick={handleFilter}>Filter</button>
         <button className='reset-button' onClick={handleResetFilters}>Reset Filters</button>
       </div>
@@ -123,6 +148,7 @@ const StudentList = () => {
             <th>EOTR</th>
             <th>EOTRe</th>
             <th>SP</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -168,10 +194,24 @@ const StudentList = () => {
                     </button>
                   ) : 'No File'}
                 </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faEdit}
+                    onClick={() => handleEdit(student)}
+                    className="action-icon"
+                    title="Edit"
+                  />
+                  <FontAwesomeIcon
+                    icon={faTrashAlt}
+                    onClick={() => handleDelete(student._id)}
+                    className="action-icon delete-icon"
+                    title="Delete"
+                  />
+                </td>
               </tr>
             ))
           ) : (
-            <tr><td colSpan="7">No students found.</td></tr>
+            <tr><td colSpan="8">No students found.</td></tr>
           )}
         </tbody>
       </table>
@@ -185,6 +225,62 @@ const StudentList = () => {
           Next
         </button>
       </div>
+
+      {editMode && (
+        <div className='edit-form-container'>
+          <h2>Edit Student</h2>
+          <form onSubmit={handleEditSubmit}>
+            <input
+              type="text"
+              name="name"
+              value={editStudentData.name}
+              onChange={handleEditChange}
+              placeholder="Name"
+              required
+            />
+            <input
+              type="text"
+              name="serviceNumber"
+              value={editStudentData.serviceNumber}
+              onChange={handleEditChange}
+              placeholder="Service Number"
+              required
+            />
+            <input
+              type="text"
+              name="course"
+              value={editStudentData.course}
+              onChange={handleEditChange}
+              placeholder="Course"
+              required
+            />
+            <input
+              type="number"
+              name="year"
+              value={editStudentData.year}
+              onChange={handleEditChange}
+              placeholder="Year"
+              required
+            />
+            <input
+              type="text"
+              name="award"
+              value={editStudentData.award}
+              onChange={handleEditChange}
+              placeholder="Award"
+            />
+            <input
+              type="text"
+              name="position"
+              value={editStudentData.position}
+              onChange={handleEditChange}
+              placeholder="Position"
+            />
+            <button type="submit" className='save-button'>Save</button>
+            <button type="button" className='cancel-button' onClick={() => setEditMode(false)}>Cancel</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

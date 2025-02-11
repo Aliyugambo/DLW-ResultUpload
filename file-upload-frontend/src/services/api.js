@@ -139,4 +139,26 @@ export const fetchStudentCountByCourse = async () => {
   }
 };
 
+// Delete a student
+export const deleteStudent = async (id) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/students/${id}`, authHeader());
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting student:', error);
+    throw error;
+  }
+};
+
+// Edit a student
+export const editStudent = async (id, studentData) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/students/${id}`, studentData, authHeader());
+    return response.data;
+  } catch (error) {
+    console.error('Error editing student:', error);
+    throw error;
+  }
+};
+
 

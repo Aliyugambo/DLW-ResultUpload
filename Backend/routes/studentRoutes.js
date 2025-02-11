@@ -1,7 +1,7 @@
 // studentRoutes.js
 const express = require('express');
 const multer = require('multer');
-const { createStudent, getAllStudents, searchStudent, filterStudents, downloadFile,studentcount } = require('../controllers/studentController');
+const { createStudent, getAllStudents, searchStudent, filterStudents, downloadFile,studentcount,deleteStudent,editStudent } = require('../controllers/studentController');
 
 const router = express.Router();
 const upload = require('../middlewares/fileUpload');
@@ -29,4 +29,9 @@ router.get('/download/:storedName/:originalName', downloadFile);
 
 router.get('/students/coursecount', studentcount);
 
+// Route for deleting a student
+router.delete('/students/:id', deleteStudent);
+
+// Route for editing a student
+router.put('/students/:id', editStudent);
 module.exports = router;
